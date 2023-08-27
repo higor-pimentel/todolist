@@ -1,0 +1,40 @@
+<ion-item-sliding #ionSliding>
+  <ion-item-options side="start" [routerLink]="'/task/' + task.id + '/edit'">
+    <ion-item-option>Editar</ion-item-option>
+  </ion-item-options>
+
+  <ion-item *ngIf="task" [detail]="false">
+    <div slot="start" [class]="!task.done ? 'dot dot-unread' : 'dot'"></div>
+    <ion-label class="ion-text-wrap">
+      <div [routerLink]="'/task/' + task.id">
+        <h2>
+          {{ task.title }}
+          <span class="date">
+            <ion-note>{{ task.date | date : "dd MMM, yyyy" }}</ion-note>
+            <ion-icon
+              aria-hidden="true"
+              name="chevron-forward"
+              size="small"
+              *ngIf="isIos()"
+            ></ion-icon>
+          </span>
+        </h2>
+        <h3 *ngIf="task.subtitle">{{ task.subtitle }}</h3>
+        <p>
+          {{ task.description }}
+        </p>
+      </div>
+    </ion-label>
+  </ion-item>
+
+  <ion-item-options>
+    <ion-item-option color="success" (click)="onChange()">
+      Realizada
+      <ion-icon slot="end" name="checkmark-done-outline"></ion-icon>
+    </ion-item-option>
+    <ion-item-option color="danger" (click)="onDelete(task)">
+      Excluir
+      <ion-icon slot="end" name="trash"></ion-icon>
+    </ion-item-option>
+  </ion-item-options>
+</ion-item-sliding>

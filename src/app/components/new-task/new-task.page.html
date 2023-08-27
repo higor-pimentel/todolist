@@ -1,0 +1,54 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="Início" defaultHref="/"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form [formGroup]="form" (ngSubmit)="saveTask()">
+    <h1>Adicionar nova tarefa</h1>
+    <ion-item>
+      <ion-label class="ion-text-wrap">
+        <ion-input
+          label="Título"
+          formControlName="title"
+          label-placement="floating"
+          fill="outline"
+          placeholder="Digite o título"
+          required
+        ></ion-input>
+        <ion-input
+          label="Subtítulo"
+          formControlName="subtitle"
+          label-placement="floating"
+          fill="outline"
+          placeholder="Digite o subtítulo"
+        ></ion-input>
+        <ion-input
+          label="Data"
+          formControlName="date"
+          label-placement="floating"
+          fill="outline"
+          placeholder="Digite a data"
+          type="date"
+          required
+        ></ion-input>
+      </ion-label>
+    </ion-item>
+
+    <ion-item class="ion-padding">
+      <ion-textarea
+        formControlName="description"
+        placeholder="Descrição"
+        [autoGrow]="true"
+      >
+      </ion-textarea>
+    </ion-item>
+
+    <ion-button type="submit" expand="block">
+      {{task ? 'Salvar' : 'Adicionar'}}
+    </ion-button>
+  </form>
+</ion-content>

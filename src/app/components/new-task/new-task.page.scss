@@ -1,0 +1,25 @@
+ion-item {
+  --background: transparent;
+}
+
+ion-label {
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+ion-item ion-input {
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+ion-item .date {
+  float: right;
+  align-items: center;
+  display: flex;
+}
+
+h1 {
+  margin-left: 1rem;
+  font-weight: bold;
+  font-size: 22px;
+}
